@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Parent } from './Parent';
+import { Child2 } from './Child2';
+import ValueContext from './ValueContext';
 
 function App() {
+  let count=useState(5)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ValueContext.Provider value={count}>
+      Hello world
+      <Parent></Parent>
+      <Child2></Child2>
+    </ValueContext.Provider>
   );
 }
 
